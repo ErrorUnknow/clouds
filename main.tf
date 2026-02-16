@@ -9,13 +9,13 @@ terraform {
 
 provider "docker" {}
 
-module "mon_infra" {
-  # Syntaxe HTTPS (pour les dépôts publics) :
-  source = "github.com/thomasedel/terraform"
+module "docker_lab" {
+  source                 = "git::https://github.com/ErrorUnknow/clouds.git//modules/docker-containers"
 
-  container_count = 3
-  image_name      = "nginx:latest"
-  memory_limit    = 256
-  is_privileged   = false
-  starting_port   = 3000 
+  image                 = "nginx:latest"
+  container_count       = 3
+  container_memory      = 256   # en Mo
+  starting_port         = 3000
+  container_name_prefix = "student"
+  privileged            = false
 }
