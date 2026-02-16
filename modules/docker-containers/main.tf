@@ -1,21 +1,16 @@
 terraform {
   required_providers {
     docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 3.6.2"
+      source = "kreuzwerker/docker"
     }
   }
 }
 
-provider "docker" {}
-
-# Pull image
 resource "docker_image" "image" {
   name         = var.image
   keep_locally = false
 }
 
-# Containers
 resource "docker_container" "containers" {
   count = var.container_count
 

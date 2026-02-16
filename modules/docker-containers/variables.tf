@@ -5,9 +5,9 @@ variable "image" {
 }
 
 variable "container_memory" {
-  description = "Memory limit for container (in bytes)"
+  description = "Memory limit in bytes"
   type        = number
-  default     = 268435456 # 256MB
+  default     = 268435456
 }
 
 variable "privileged" {
@@ -17,7 +17,7 @@ variable "privileged" {
 }
 
 variable "container_count" {
-  description = "Number of containers to spawn"
+  description = "Number of containers to create"
   type        = number
   default     = 1
 }
@@ -31,5 +31,5 @@ variable "starting_port" {
 variable "container_name_prefix" {
   description = "Prefix for container names"
   type        = string
-  default     = "terraform-nginx"
+  default     = "terraform-container"
 }
