@@ -5,9 +5,9 @@ variable "image" {
 }
 
 variable "container_memory" {
-  description = "Memory limit in bytes"
+  description = "Memory limit in MB"
   type        = number
-  default     = 268435456
+  default     = 256
 }
 
 variable "privileged" {
