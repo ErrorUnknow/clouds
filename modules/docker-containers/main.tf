@@ -28,4 +28,11 @@ resource "docker_container" "containers" {
     internal = 80
     external = var.starting_port + count.index
   }
+
+  # Générer la page d'accueil
+  command = [
+    "/bin/sh",
+    "-c",
+    "echo \"<h1>Hostname: $(hostname)</h1>\" > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+  ]
 }
