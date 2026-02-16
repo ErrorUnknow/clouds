@@ -52,3 +52,9 @@ variable "container_name_prefix" {
     error_message = "Container name prefix cannot be empty."
   }
 }
+
+variable "privileged" {
+  description = "Run container in privileged mode"
+  type        = bool
+  default     = false
+}

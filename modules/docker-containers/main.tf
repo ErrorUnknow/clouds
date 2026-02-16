@@ -29,10 +29,12 @@ resource "docker_container" "containers" {
     external = var.starting_port + count.index
   }
 
-  # Générer la page d'accueil
-  command = [
-    "/bin/sh",
-    "-c",
-    "echo \"<h1>Hostname: $(hostname)</h1>\" > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
-  ]
+  # Définir le hostname du container
+  hostname = "${var.container_name_prefix}-${count.index}"
+
+  # Générer la page d'accueil avec le hostname
+  upload {
+    content = "<h1>Hostname: ${var.container_name_prefix}-${count.index}</h1>"
+    file    = "/usr/share/nginx/html/index.html"
+  }
 }

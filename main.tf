@@ -10,7 +10,7 @@ terraform {
 provider "docker" {}
 
 module "docker_lab" {
-  source                 = "git::https://github.com/ErrorUnknow/clouds.git//modules/docker-containers"
+  source                 = "./modules/docker-containers"
 
   image                 = "nginx:latest"
   container_count       = 3
