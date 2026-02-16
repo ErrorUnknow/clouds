@@ -1,3 +1,21 @@
+# Terraform folders
 .terraform/
+
+# Terraform state files
 *.tfstate
 *.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Lock files in modules (optional)
+modules/**/.terraform.lock.hcl
+modules/**/.terraform/
